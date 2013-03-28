@@ -11,6 +11,16 @@ define(function() {
       //
       // otherwise the function should return the number, or false if no number
       // was provided or the value provided is not a number
+
+      var test = (typeof num === 'number') ? num : false,
+        string = '';
+
+      if(typeof test !== 'boolean') {
+        if(test%3 === 0) { string = 'fizz'; }
+        if(test%5 === 0) { string = string + 'buzz'; }
+      }
+
+      return (string) ? string : test;
     }
   };
 });
