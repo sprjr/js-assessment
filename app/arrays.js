@@ -52,7 +52,12 @@ define(function() {
     },
 
     count : function(arr, item) {
+        var count = 0;
+        for(var i=0, j=arr.length; i<j; i++) {
+            if (arr[i] === item) count++;
+        }
 
+        return count;
     },
 
     duplicates : function(arr) {
