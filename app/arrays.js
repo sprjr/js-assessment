@@ -15,7 +15,12 @@ define(function() {
     },
 
     remove : function(arr, item) {
+        do {
+            arr.splice( arr.indexOf(item), 1 );
+            console.log(arr);
+        } while (arr.indexOf(item) !== -1);
 
+        return arr;
     },
 
     removeWithoutCopy : function(arr, item) {
