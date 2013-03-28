@@ -11,7 +11,9 @@ define(function() {
     },
 
     functionFunction : function(str) {
-
+        return function(secondString) {
+            return str + ', ' + secondString;
+        };
     },
 
     makeClosures : function(arr, fn) {
@@ -23,7 +25,12 @@ define(function() {
     },
 
     useArguments : function() {
+        var results = 0;
+        for(var i=0, j=arguments.length; i<j; i++) {
+            results += arguments[i];
+        }
 
+        return results;
     },
 
     callIt : function(fn) {
