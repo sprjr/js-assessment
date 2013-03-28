@@ -17,14 +17,19 @@ define(function() {
     remove : function(arr, item) {
         do {
             arr.splice( arr.indexOf(item), 1 );
-            console.log(arr);
         } while (arr.indexOf(item) !== -1);
 
         return arr;
     },
 
     removeWithoutCopy : function(arr, item) {
+        // totally do not understand what this vs remove()
+        // was supposed to look like?
+        do {
+            arr.splice( arr.indexOf(item), 1 );
+        } while (arr.indexOf(item) !== -1);
 
+        return arr;
     },
 
     append : function(arr, item) {
