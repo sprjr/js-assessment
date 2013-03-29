@@ -61,15 +61,44 @@ define(function() {
     },
 
     duplicates : function(arr) {
+        var dupes = {},
+            results =[];
 
+        for(var i=0, j=arr.length; i<j; i++) {
+
+            if( dupes.hasOwnProperty(arr[i]) ) {
+                dupes[arr[i]]++;
+            } else {
+                dupes[arr[i]] = 0;
+            }
+        }
+
+        for(var key in dupes) {
+            if(dupes[key] > 0) {
+                results.push(key);
+            }
+        }
+
+        return results;
     },
 
     square : function(arr) {
+        for(var i=0, j=arr.length; i<j; i++){
+            arr[i] = arr[i]*arr[i];
+        }
 
+        return arr;
     },
 
     findAllOccurrences : function(arr, target) {
+        var occurances = [];
+        for(var i=0, j=arr.length; i<j; i++) {
+            if(arr[i] === target) {
+                occurances.push(i);
+            }
+        }
 
+        return occurances;
     }
   };
 });
