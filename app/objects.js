@@ -12,17 +12,19 @@ define(function() {
 		},
 
 		iterate : function(obj) {
-			// Object.getOwnPropertyNames(obj);
+			// http://jsperf.com/own-prop-loop
+			// git checkout 5af22e5aba67203d76e3737ba2653fb1a94e6f23
+			// if you would like to see another way of solving this,
+			// which is a bit faster apparently. Just tinkering.
+			var ownProperties = Object.getOwnPropertyNames(obj);
 
-			var ownProperties = [];
+			var i=0, j=ownProperties.length, results = [];
 
-			for(var key in obj) {
-				if (obj.hasOwnProperty(key)) {
-					ownProperties.push(key + ': ' + obj[key]);
-				}
+			for(i;i<j;i++) {
+				results.push(ownProperties[i] + ': ' + obj[ownProperties[i]]);
 			}
 
-			return ownProperties;
+			return results;
 		}
 	};
 });
