@@ -3,11 +3,12 @@ if (typeof define !== 'function') { var define = require('amdefine')(module); }
 define(function() {
   return {
     argsAsArray : function(fn, arr) {
-
+        // alternatives for "this" - {}? fn?
+        return fn.apply(this, arr);
     },
 
     speak : function(fn, obj) {
-
+        return fn.call(obj);
     },
 
     functionFunction : function(str) {
