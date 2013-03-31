@@ -8,16 +8,25 @@ define(function() {
 			if(data.files) {
 				for (var i = 0; i < data.files.length; i++) {
 					var item = data.files[i];
-					if(typeof item === 'string') {
-						if(dirName !== undefined && dirName === data.dir) {
-							// console.log('directory sent: ' + dirName, data.dir);
+
+					if(!dirName) {
+
+						if(typeof item === 'string') {
 							recurseFileList.push(item);
-						} else {
-							// console.log('directory not sent: ' + dirName, data.dir);
+						} else if(typeof item === 'object') {
+							recurseFileList = recurseFileList.concat( this.listFiles(item, dirName) );
+						}
+					} else {
+						// given a dirName, it matches, and the item is a file name - add to array
+						if(typeof item === 'string' && data.dir === dirName) {
 							recurseFileList.push(item);
 						}
-					} else if(typeof item === 'object') {
-						recurseFileList = recurseFileList.concat( this.listFiles(item, dirName) );
+
+						// honestly kind of fuzzy on this logic
+						if(typeof item === 'object' && item.dir === dirName) {
+							recurseFileList = recurseFileList.concat( this.listFiles(item) );
+						}
+
 					}
 				}
 			}
