@@ -35,7 +35,17 @@ define(function() {
     },
 
     callIt : function(fn) {
+        var argFn, args = [];
 
+        for(var key in arguments) {
+            if(typeof arguments[key] !== 'function') {
+                args.push(arguments[key]);
+            } else if (typeof arguments[key] === 'function' && argFn === undefined) {
+                argFn = arguments[key];
+            }
+        }
+
+        return argFn.apply(null, args);
     },
 
     partialUsingArguments : function(fn) {
@@ -43,7 +53,9 @@ define(function() {
     },
 
     curryIt : function(fn) {
-
+        if(typeof fn === 'function') {
+            return fn;
+        }
     }
   };
 });
