@@ -18,7 +18,19 @@ define(function() {
     },
 
     makeClosures : function(arr, fn) {
+        var i = 0, j=arr.length, results =[];
 
+        for(i; i<j; i++) {
+            var closed = (function(val){
+                console.log('my loop', val);
+                return function(){
+                    return fn(val);
+                };
+            })(arr[i]);
+            results.push( closed );
+        }
+
+        return results;
     },
 
     partial : function(fn, str1, str2) {
