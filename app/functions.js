@@ -22,7 +22,6 @@ define(function() {
 
         for(i; i<j; i++) {
             var closed = (function(val){
-                console.log('my loop', val);
                 return function(){
                     return fn(val);
                 };
