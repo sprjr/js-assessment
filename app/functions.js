@@ -64,9 +64,29 @@ define(function() {
     },
 
     curryIt : function(fn) {
+        var curry, oldX, oldY, oldZ;
+
         if(typeof fn === 'function') {
-            return fn;
+            curry = fn;
         }
+
+        var curryX = function(x) {
+            oldX = x;
+            return curryY;
+        };
+
+        var curryY = function(y) {
+            oldY = y;
+            return curryZ;
+        };
+
+        var curryZ = function(z) {
+            oldZ = z;
+            return curry(oldX, oldY, oldZ);
+        };
+
+        return curryX;
+
     }
   };
 });
