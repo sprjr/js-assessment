@@ -1,3 +1,9 @@
+# My Personal Tests Status (See below for more info on this repository)
+
+#### Build Status
+[![Build Status](https://travis-ci.org/sprjr/js-assessment.png
+)](https://travis-ci.org/sprjr/js-assessment)
+
 # A test-driven JS assessment
 
 This repo includes a set of tests that can be used to assess the skills of
