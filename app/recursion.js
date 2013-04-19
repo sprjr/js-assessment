@@ -35,7 +35,7 @@ define(function() {
 		},
 
 		permute: function(arr) {
-
+			console.log(arr);
 		}
 	};
 });
