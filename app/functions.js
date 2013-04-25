@@ -33,7 +33,9 @@ define(function() {
     },
 
     partial : function(fn, str1, str2) {
-
+        return function partialFn(){
+            return fn.apply(null, [str1, str2, '!!!']);
+        };
     },
 
     useArguments : function() {
