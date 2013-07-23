@@ -1,4 +1,5 @@
-# My Personal Tests Status (See below for more info on this repository)
+# My Personal Tests Status
+#### (See below for more info on this repository)
 
 #### Build Status
 [![Build Status](https://travis-ci.org/sprjr/js-assessment.png

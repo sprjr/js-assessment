@@ -62,7 +62,11 @@ define(function() {
     },
 
     partialUsingArguments : function(fn) {
-
+        var partials = _.rest(arguments);
+        return function () {
+            var args = Array.prototype.slice.call(arguments);
+            return fn.apply(null, partials.concat(args) );
+        }
     },
 
     curryIt : function(fn) {
