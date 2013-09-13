@@ -23,14 +23,12 @@ define(function() {
     },
 
     matchesPattern : function(str) {
-        var pattern = new RegExp(/[0-9]{3,3}-[0-9]{3,3}-[0-9]{4,4}/);
-        console.log(str, pattern);
-        console.log(pattern.test(str));
+        var pattern = new RegExp(/^\d{3}-?\d{3}-?\d{4}$/);
         return pattern.test(str);
-
     },
     isUSD : function(str) {
-
+        var pattern = new RegExp(/^\$[+-]?[0-9]{1,3}(?:,?[0-9]{3})*(?:\.[0-9]{2})?$/);
+        return pattern.test(str);
     }
   };
 });
