@@ -3,7 +3,9 @@ if (typeof define !== 'function') { var define = require('amdefine')(module); }
 define(function() {
 	return {
 		valueAtBit: function(num, bit) {
-
+			// random hackage. thoughts?
+			var bin = this.convertToBinary(num).toString();
+			return parseInt(bin.substr(bin.length - bit, 1),2);
 		},
 
 		base10: function(str) {
@@ -15,13 +17,13 @@ define(function() {
 			// as such, I do not intend to activate it to pass the test
 			// and want to sit down and work through it
 
-			// var arr = [];
+			var arr = [];
 
-// 			for (var i = 7; i > -1; i--) {
-// 				arr.push( num & (1 << i) ? 1 : 0 );
-// 			}
+			for (var i = 7; i > -1; i--) {
+				arr.push( num & (1 << i) ? 1 : 0 );
+			}
 
-// 			return arr.join('');
+			return arr.join('');
 		},
 
 		multiply: function(a, b) {
